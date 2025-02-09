@@ -1,5 +1,5 @@
-function [signal_data] = analyze_signal(magSignalFilter, start, stop, FF_threshold, entropy_threshold, figureVisibility, subject_folder, signal_name, signal_units)
-[ampIEI, ampHist, ampFFs, ampEnts] = amp_biometrics(magSignalFilter, 1, start, stop, signal_units);
+function [signal_data] = analyze_signal(magSignalFilter, start, stop, FF_threshold, entropy_threshold, figureVisibility, subject_folder, signal_name, signal_units,bin_size)
+[ampIEI, ampHist, ampFFs, ampEnts] = amp_biometrics(magSignalFilter, bin_size, start, stop, signal_units);
 
 %% Compute Stability
 [FF_stable_point, FF_stable_var] = find_stability(ampFFs, FF_threshold);

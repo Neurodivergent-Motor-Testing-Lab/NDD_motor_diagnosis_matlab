@@ -1,4 +1,6 @@
 function [cumulative_biometrics] = trialwise_biometric_analysis(cumulativeExtremaDiffs, biometric_function, N)
+%Used to find biometric as additional trials are considered for both
+%habituation information and final biometric
 cumulative_biometrics = [];
 for i = 1:length(cumulativeExtremaDiffs)
     extrema_diffs_so_far = cumulativeExtremaDiffs{i};
@@ -10,8 +12,8 @@ for i = 1:length(cumulativeExtremaDiffs)
 
     figure('visible', 'off')
     his = histogram(extrema_diffs_so_far, x, 'Normalization', 'pdf');
-    biometric = biometric_function(his);
-    cumulative_biometrics = [cumulative_biometrics, biometric];
+    biometric = biometric_function(his); %biometric from addition of one more trial
+    cumulative_biometrics = [cumulative_biometrics, biometric]; %Last value is biometric of individual using all trials
 end
 
 end
