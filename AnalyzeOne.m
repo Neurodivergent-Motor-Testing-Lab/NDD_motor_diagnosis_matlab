@@ -92,11 +92,11 @@ save(fullfilename, 'trial_data');
 magAccelFilter = sqrt(sum(linear_accel_s.^2, 2));
 
 %% amp bm's for linear_accel
-linear_accel_analyzed_data = analyze_signal(magAccelFilter, start, stop, 0.0021, 0.01, figureVisibility, subject_folder, "Linear Acceleration", "(m/s^{2})");
+linear_accel_analyzed_data = analyze_signal(magAccelFilter, start, stop, 0.0021, 0.01, figureVisibility, subject_folder, "Linear Acceleration", "(m/s^{2})",1);
 data.linear_accel_analyzed_data = linear_accel_analyzed_data;
 
 %% amp bm's for linear_jerk
-linear_jerk_analyzed_data = analyze_signal(magLinearJerkFilter, start, stop, 0.0016, 0.01, figureVisibility, subject_folder, "Linear Jerk", "(m/s^{3})");
+linear_jerk_analyzed_data = analyze_signal(magLinearJerkFilter, start, stop, 0.0016, 0.01, figureVisibility, subject_folder, "Linear Jerk", "(m/s^{3})",0);
 data.linear_jerk_analyzed_data = linear_jerk_analyzed_data;
 
 %% ASSIGN TO DATA
